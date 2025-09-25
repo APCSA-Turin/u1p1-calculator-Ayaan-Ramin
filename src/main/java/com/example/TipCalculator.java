@@ -5,6 +5,8 @@ public class TipCalculator {
     //WRITE YOUR PROGRAM IN calculateTip
     public static String calculateTip(int people, int percent, double cost) { //You must use these  variable in your calculations
         //DO NOT DELETE ANY OF THE CODE BELOW      
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
 
         String result = "-------------------------------\n" +
                        "Total bill before tip: $" + "" + "\n" +
@@ -17,6 +19,7 @@ public class TipCalculator {
                        "-------------------------------\n";
 
         return result;
+
     }
 
     public static String extraCredit(int people, int percent, double cost) {
@@ -48,8 +51,9 @@ public class TipCalculator {
         int people=10; 
         int percent=8;
         double cost=10.5;              
-        //System.out.println(calculateTip(people,percent,cost));
-        System.out.println(extraCredit(people, percent, cost));
+        System.out.println(calculateTip(people,percent,cost));
+        //System.out.println(extraCredit(people, percent, cost));
+        scanner.close();
     }
 }
         
