@@ -1,7 +1,7 @@
 package com.example;
 import java.util.Scanner;
-import java.text.DecimalFormat; // to round the decimals. Source: ChatGPT
-import java.util.ArrayList; // to store menu items. Source: https://www.w3schools.com/java/java_arraylist.asp
+import java.text.DecimalFormat; // to round the decimals. i learned about DecimalFormat from Google, and asking ChatGPT
+import java.util.ArrayList; // to store menu items. I learned about ArrayList from here: https://www.w3schools.com/java/java_arraylist.asp
 
 public class TipCalculator {
     //WRITE YOUR PROGRAM IN calculateTip
@@ -16,13 +16,14 @@ public class TipCalculator {
         double perPersonTip = tipAmount / people;
         double perPersonTotal = totalWithTip / people;
 
-        // round to 2 decimals using DecimalFormat Source: 
-        DecimalFormat df = new DecimalFormat("0.00");
-        
+        // round to 2 decimals using DecimalFormat 
+        DecimalFormat df = new DecimalFormat("0.00"); //Source: https://jenkov.com/tutorials/java-internationalization/decimalformat.html talks about how to use DecimalFormat in more depth.
+        // the format() function comes with the class DecimalFormat.
+        // the "0.00" means to always show 2 decimal places.
         String result = "-------------------------------\n" +
                        "Total bill before tip: $" + df.format(cost) + "\n" +
                        "Total percentage: " + percent + "%\n" +
-                       "Total tip: $" + df.format(tipAmount) + "\n" +
+                       "Total tip: $" + df.format(tipAmount) + "\n" + 
                        "Total Bill with tip: $" + df.format(totalWithTip) + "\n" +
                        "Per person cost before tip: $" + df.format(perPersonBeforeTip) + "\n" +
                        "Tip per person: $" + df.format(perPersonTip) + "\n" +
@@ -33,17 +34,15 @@ public class TipCalculator {
     }
 
     public static String extraCredit(int people, int percent, double cost) {
-        //String result = "Extra credit not implemented";
-        //boolean condition = true;
         Scanner scan = new Scanner(System.in);
-        ArrayList<String> items = new ArrayList<>();
+        ArrayList<String> items = new ArrayList<>(); // I learned how to use ArrayLists from https://codehs.com/tutorial/evelyn/arraylists-in-java and https://www.w3schools.com/java/java_arraylist.asp
 
         // ask for items
         while (true) {
             System.out.println("Enter an item name or type '-1' to finish:");
             String item = scan.nextLine();
             
-            if (item.equals("-1")) {
+            if (item.equals("-1")) { // I used https://www.w3schools.com/java/ref_string_equals.asp to help me figure out the method ".equals()"
                 break; // exit loop
             } else {
                 items.add(item);
@@ -55,31 +54,17 @@ public class TipCalculator {
 
         // then add items list
         result += "Items ordered:\n";
-        for (String item : items) {
+        for (String item : items) { //this is basically a for loop, I got help on doing this from https://www.w3schools.com/java/java_ref_string.asp
             result += item + "\n";
         }
 
         return result;
-    
-        //  COPY AND PASTE YOUR PROGRAM FROM calculateTip() HERE 
-        
-        // the while loop condition is checked,
-        // and if TRUE, runs the code inside.
-        // when the code inside is done running, the condition is rechecked,
-        // and the loop repeats as long as the condition remains TRUE.
-        // when the condition becomes FALSE, it stops
 
     }
-    
-    
      //TEST YOUR PROGRAM IN main
      public static void main(String[] args) {
-        //try different values for people, percent, and cost to test your program before running test cases
         Scanner scan = new Scanner(System.in);
-
-        //int people=10; 
-        //int percent=8;
-        //double cost=10.5;              
+             
         System.out.println("How many people are there?");
         int people = scan.nextInt();
         System.out.println("What % tip will you give?");
